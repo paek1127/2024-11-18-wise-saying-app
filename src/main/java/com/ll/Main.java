@@ -35,6 +35,7 @@ class App {
                 System.out.println("----------------------");
             }
         }
+        scanner.close();
     }
 
 }
