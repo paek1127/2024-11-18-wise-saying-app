@@ -17,6 +17,9 @@ class App {
 
         int lastId = 0;
 
+        WiseSaying[] wiseSayings = new WiseSaying[3];
+        int wiseSayingsSize = 0;
+
         while (true) {
             System.out.print("명령) ");
             String cmd = scanner.nextLine();
@@ -32,15 +35,34 @@ class App {
 
                 int id = ++lastId;
 
-                WiseSaying wiseSaying = new WiseSaying();
-                wiseSaying.id = id;
-                wiseSaying.content = content;
-                wiseSaying.author = author;
+                WiseSaying wiseSaying = new WiseSaying(id, content, author);
+
+                wiseSayings[wiseSayingsSize] = wiseSaying;
+                wiseSayingsSize++;
+
+//                System.out.println(Arrays.toString(wiseSayings));
 
                 System.out.println("%d번 명언이 등록되었습니다.".formatted(id));
             } else if (cmd.equals("목록")) {
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
+
+//                try {
+//                    System.out.println("%d / %s / %s".formatted(lastWiseSaying.id, lastWiseSaying.author, lastWiseSaying.content));
+//                } catch (NullPointerException e) {
+//                    System.out.println("등록된 명언이 없습니다.");
+//                }
+
+//                if (lastWiseSaying != null) {
+//                    System.out.println("%d / %s / %s".formatted(lastWiseSaying.id, lastWiseSaying.author, lastWiseSaying.content));
+//                } else {
+//                    System.out.println("등록된 명언이 없습니다.");
+//                }
+
+                for (int i = 0; i < wiseSayingsSize; i++) {
+                    WiseSaying wiseSaying = wiseSayings[i];
+                    System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
+                }
             }
         }
         scanner.close();
@@ -51,4 +73,15 @@ class WiseSaying {
     int id;
     String content;
     String author;
+
+    WiseSaying(int id, String content, String author) {
+        this.id = id;
+        this.content = content;
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "WiseSaying (id=%d, content=\"%s\", author=\"%s\")".formatted(id, content, author);
+    }
 }
