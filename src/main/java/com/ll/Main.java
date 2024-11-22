@@ -59,8 +59,12 @@ class App {
 //                    System.out.println("등록된 명언이 없습니다.");
 //                }
 
-                for (int i = 0; i < wiseSayingsSize; i++) {
-                    WiseSaying wiseSaying = wiseSayings[i];
+//                for (int i = 0; i < wiseSayingsSize; i++) {
+//                    WiseSaying wiseSaying = wiseSayings[i];
+//                    System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
+//                }
+                for (WiseSaying wiseSaying : wiseSayings) {
+                    if (wiseSaying == null) break;
                     System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
                 }
             }
