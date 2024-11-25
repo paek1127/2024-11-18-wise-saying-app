@@ -1,25 +1,25 @@
-package com.ll;
+package com.ll.domain.wiseSaying.entity;
 
 public class WiseSaying {
     private final int id;
     private String content;
     private String author;
 
-    WiseSaying(int id, String content, String author) {
+    public WiseSaying(int id, String content, String author) {
         this.id = id;
         this.content = content;
         this.author = author;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public String getContent(){
+    public String getContent() {
         return content;
     }
 
-    public String getAuthor(){
+    public String getAuthor() {
         return author;
     }
 
